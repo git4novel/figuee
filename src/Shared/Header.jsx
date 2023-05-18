@@ -17,8 +17,8 @@ const Header = () => {
     setName(currentUser?.displayName);
   }, [currentUser?.displayName, setName]);
 
-  console.log(currentUser);
-  console.log(currentUser?.displayName);
+  // console.log(currentUser);
+  // console.log(currentUser?.displayName);
 
   const handleMouseEnter = () => {
     setShowDisplayName(true);

@@ -46,9 +46,13 @@ const {currentUser, setCurrentUser, loading, setLoading } = useContext(AuthConte
   };
 
   return (
-    <div className="mt-8 bg-[#E5E7EB] flex flex-col lg:flex-row min-h-screen">
-      <div className="lg:w-1/2 bg-gray-200 flex items-center justify-center">
-        <div className="max-w-md w-full mx-auto p-6 bg-white border border-gray-300 shadow-md rounded-lg">
+    <>
+    <h1 className="text-center text-4xl italic font-bold">
+          <span className="text-[#F6AB4A]" >Welcome </span> to Figuee
+    </h1>
+    <div className="mt-8 bg-[#E5E7EB] flex flex-col md:flex-row rounded-lg min-h-screen">
+      <div className="mx-3 md:mx-0 rounded-lg w-full md:w-1/2 bg-gray-200 flex items-center justify-center">
+        <div className=" max-w-md w-full mx-auto p-6 bg-white border border-gray-300 shadow-md rounded-lg">
           <h2 className="text-3xl font-bold text-start mb-6">
             Please Register Quick!
           </h2>
@@ -136,19 +140,19 @@ const {currentUser, setCurrentUser, loading, setLoading } = useContext(AuthConte
         </div>
       </div>
 
-      <div style={{ textShadow: "3px 3px 3px rgba(1, 1, 0.5, 1)" }} className="mt-2  rounded-xl relative lg:w-1/2  text-[#7E4C4F] my-3 mx-3 flex items-center justify-center">
-        <h1 className="absolute top-4 text-center text-4xl italic font-bold">
-          <span className="text-[#F6AB4A]" >Welcome </span>
-          to figuee
-        </h1>
-
+      <div style={{ textShadow: "3px 3px 3px rgba(1, 1, 0.5, 1)" }} className="hidden md:flex mt-20 pt-6 w-full  rounded-xl relative md:w-1/2  text-[#7E4C4F] my-3 mx-3 items-center justify-center">
         <img
-          className="mx-2 rounded-xl"
-          src="https://i.ibb.co/4KRhm0d/mulyadi-MO7-HNb-W1-Mew-unsplash.jpg"
+          className="mx-2 rounded-xl absolute"
+          src="https://i.ibb.co/MgpH4CN/mulyadi-MO7-HNb-W1-Mew-unsplash-removebg-preview.png"
           alt=""
         />
+        <h1 className="absolute top-1/3 text-center text-4xl italic font-bold">
+          <span className="text-[#F6AB4A]" >Welcome </span>
+        
+        </h1>
       </div>
     </div>
+    </>
   );
 };
 
