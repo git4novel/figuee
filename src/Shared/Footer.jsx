@@ -4,10 +4,9 @@ const Footer = () => {
       <footer className="footer p-10 bg-base-200 text-base-content">
         <div>
         <img className="w-[100px] " src="https://i.ibb.co/DK3b68c/default.png" alt="" />
-          <p>
-            ACME Industries Ltd.
-            <br />
-            Providing reliable tech since 1992
+        <p>
+            Figuee Providing Comics Figure. <br />
+            Get toy; fun toy
           </p>
         </div>
         <div>
@@ -36,8 +35,8 @@ const Footer = () => {
         <div className="items-center grid-flow-col">
         <img className="w-14 " src="https://i.ibb.co/DK3b68c/default.png" alt="" />
           <p>
-            ACME Industries Ltd. <br />
-            Providing reliable tech since 1992
+            Figuee Providing Comics Figure. <br />
+            Get toy; fun toy
           </p>
         </div>
         <div className="md:place-self-center md:justify-self-end">

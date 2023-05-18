@@ -7,7 +7,7 @@ import AuthProvider from "./providers/AuthProvider";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <AuthProvider>
-    <div className="max-w-[1296px] container mx-auto">
+    <div className=" container mx-auto">
       <RouterProvider router={router} />
     </div>
   </AuthProvider>

@@ -1,17 +1,15 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext, auth } from "../providers/AuthProvider";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import Swal from "sweetalert2";
+import 'sweetalert2/dist/sweetalert2.css';
 
 
 
 const Register = () => {
     
-const {user, setUser, loading, setLoading } = useContext(AuthContext)
-
-  const [success, setSuccess] = useState("");
-  const [error, setError] = useState("");
+const {currentUser, setCurrentUser, loading, setLoading } = useContext(AuthContext)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,15 +27,17 @@ const {user, setUser, loading, setLoading } = useContext(AuthContext)
             title: 'Success',
             text: 'SignUp successful'
         })
-        setUser(user);
+        
+        setCurrentUser(user);
         console.log(user);
         
     })
-    .catch(error=>{
+    .catch((error)=>{
+        console.log(error);
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            // text: `${error.message}!`,
+            text: `${error?.message}!`,
           })
     })
     console.log(name,email, password, photo);
@@ -46,7 +46,7 @@ const {user, setUser, loading, setLoading } = useContext(AuthContext)
   };
 
   return (
-    <div className="mt-4 bg-[#E5E7EB] flex flex-col lg:flex-row min-h-screen">
+    <div className="mt-8 bg-[#E5E7EB] flex flex-col lg:flex-row min-h-screen">
       <div className="lg:w-1/2 bg-gray-200 flex items-center justify-center">
         <div className="max-w-md w-full mx-auto p-6 bg-white border border-gray-300 shadow-md rounded-lg">
           <h2 className="text-3xl font-bold text-start mb-6">
@@ -129,7 +129,6 @@ const {user, setUser, loading, setLoading } = useContext(AuthContext)
             Already an User go
             <Link to={"/login"}>
               <span className="hover:text-[#F6AB4A] text-[#7E4C4F]">
-                {" "}
                 Login!
               </span>
             </Link>

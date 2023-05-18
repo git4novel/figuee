@@ -5,8 +5,11 @@ import { Link } from "react-router-dom";
 import { AuthContext, auth } from "../providers/AuthProvider";
 import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import Swal from "sweetalert2";
+import 'sweetalert2/dist/sweetalert2.css';
+
+
 const Login = () => {
-  const { user, setUser, loading, setLoading } = useContext(AuthContext);
+  const { setCurrentUser, loading, setLoading } = useContext(AuthContext);
 
 
   const handleSubmit = (e) => {
@@ -21,16 +24,17 @@ const Login = () => {
         Swal.fire({
             icon: 'success',
             title: 'Success',
-            text: 'SignUp successful'
+            text: 'SignIn successful'
         })
-        setUser(user);
+        setCurrentUser(user);
         console.log(user);
     })
     .catch(error=>{
+        console.log(error);
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: `${error.message}!`,
+            text: `rytyhrftghdfg!`,
           })
     })
     // Reset the form
@@ -43,6 +47,11 @@ const Login = () => {
     .then(result =>{
         const user = result.user;
         console.log(user);
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: 'SignIn successful'
+        })
     })
     .catch(error=>{
         console.log(error?.message);
