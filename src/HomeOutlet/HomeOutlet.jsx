@@ -1,5 +1,6 @@
 import Banner from "../HomePages/Banner";
 
+
 const HomeOutlet = () => {
     return (
         <>

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+ import '../App.css'
 const Header = () => {
   return (
     <div className="navbar bg-base-100">
@@ -53,7 +55,7 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <Link to={'/'}><img className="w-28 rounded-lg py-1 my-2 mx-3" src="https://i.ibb.co/K2rTd31/cover.png" alt="" /></Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -88,7 +90,7 @@ const Header = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Get started</a>
+        <Link to={'/login'} className="bg-[#7E4C4F] hover:bg-[#F6AB4A] btn border">Login</Link>
       </div>
     </div>
   );

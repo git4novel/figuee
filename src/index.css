@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+     font-family: 'Freedoka';
+     src: url('path/to/freedoka-font.woff2') format('woff2'),
+          url('path/to/freedoka-font.woff') format('woff');
+     /* Add additional font formats if necessary */
+   }
+   
+@font-face {
+    font-family: 'Pacifico';
+    src: url('path/to/pacifico-font.woff2') format('woff2'),
+         url('path/to/pacifico-font.woff') format('woff');
+    /* Add additional font formats if necessary */
+  }
+  

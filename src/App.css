@@ -1,0 +1,47 @@
+/* 
+#7E4C4F primary
+secondary #F6AB4A
+second secondary: #FBEDDC
+
+
+#F7f7f7 secondary white
+
+font 1:freedoka one
+font 2: open sans(for small text and description)
+font 3: pacifico (for g0ldish)
+
+my website name is figuee
+
+*/
+
+
+
+
+.novel-primary-color{
+  color: #7E4C4F;
+}
+
+.novel-secondary-color{
+  color: #F6AB4A;
+}
+
+/* light color of secondary color */
+.novel-second-secondary-color{
+  color: #FBEDDC;
+}
+
+
+
+/* ---------font --------- */
+.primary-font {
+  font-family: 'Freedoka', sans-serif;
+}
+
+.secondary-font {
+  font-family: 'Pacifico', cursive;
+}
+
+.default-font {
+  font-family: sans-serif;
+}
+
