@@ -1,27 +1,53 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./Login.css";
-import { FcGoogle } from 'react-icons/fc';
+import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { AuthContext, auth } from "../providers/AuthProvider";
+import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import Swal from "sweetalert2";
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [success, setSuccess] = useState("");
-  const [error, setError] = useState("");
+  const { user, setUser, loading, setLoading } = useContext(AuthContext);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true)
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    signInWithEmailAndPassword(auth, email, password)
+    .then(result=>{
+        const user = result.user;
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: 'SignUp successful'
+        })
+        setUser(user);
+        console.log(user);
+    })
+    .catch(error=>{
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: `${error.message}!`,
+          })
+    })
     // Reset the form
-    setEmail("");
-    setPassword("");
+    form.reset()
   };
 
-  const handleGoogleLogin = () =>{
-
-  }
+  const provider = new GoogleAuthProvider()
+  const handleGoogleLogin = () => {
+    signInWithPopup(auth, provider)
+    .then(result =>{
+        const user = result.user;
+        console.log(user);
+    })
+    .catch(error=>{
+        console.log(error?.message);
+    })
+  };
 
   return (
     <div className="mt-4 bg-[#E5E7EB] flex flex-col lg:flex-row min-h-screen">
@@ -70,17 +96,33 @@ const Login = () => {
               </button>
             </div>
           </form>
-          <p className="text-sm font-bold">New Here go to <Link to={'/register'}><span className="hover:text-[#F6AB4A] text-[#7E4C4F]">Register!</span></Link></p>
+          <p className="text-sm font-bold">
+            New Here go to{" "}
+            <Link to={"/register"}>
+              <span className="hover:text-[#F6AB4A] text-[#7E4C4F]">
+                Register!
+              </span>
+            </Link>
+          </p>
           <div className="flex items-center justify-center">
             <span className="mr-2">Or login with:</span>
-            <button onClick={handleGoogleLogin} className="bg-[#7E4C4F] text-white px-4 py-2 rounded-lg hover:bg-[#F6AB4A]">
-             <span className="inline-flex justify-center align-middle my-auto"> Google  <FcGoogle className="ml-3 my-auto" /></span>
+            <button
+              onClick={handleGoogleLogin}
+              className="bg-[#7E4C4F] text-white px-4 py-2 rounded-lg hover:bg-[#F6AB4A]"
+            >
+              <span className="inline-flex justify-center align-middle my-auto">
+                {" "}
+                Google <FcGoogle className="ml-3 my-auto" />
+              </span>
             </button>
           </div>
         </div>
       </div>
 
-      <div className="mt-2 shadow-2xl rounded-xl relative lg:w-1/2  text-white my-3 mx-3 flex items-center justify-center">
+      <div
+        style={{ textShadow: "3px 3px 3px rgba(1, 1, 0.5, 1)" }}
+        className="mt-2 shadow-2xl rounded-xl relative lg:w-1/2  text-white my-3 mx-3 flex items-center justify-center"
+      >
         <h1 className="shadow-xl absolute text-[#F6AB4A] top-4 text-center text-4xl italic font-bold">
           <span className="text-[#7E4C4F]">Welcome</span> to figuee
         </h1>
