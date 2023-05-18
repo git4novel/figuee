@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "../App.css";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext, auth } from "../providers/AuthProvider";
 import { signOut } from "firebase/auth";
 import Swal from "sweetalert2";
@@ -13,7 +13,9 @@ const Header = () => {
     useContext(AuthContext);
   const [showDisplayName, setShowDisplayName] = useState(false);
 
-  setName(currentUser?.displayName);
+  useEffect(() => {
+    setName(currentUser?.displayName);
+  }, [currentUser?.displayName, setName]);
 
   console.log(currentUser);
   console.log(currentUser?.displayName);
@@ -69,6 +71,7 @@ const Header = () => {
             </svg>
           </label>
           <ul
+            style={{ fontFamily: 'Pacifico' }}
             tabIndex={0}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
@@ -124,7 +127,7 @@ const Header = () => {
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul style={{ fontFamily: 'Pacifico' }} className="menu menu-horizontal px-1">
           <li className="font-semibold italic">
             <Link>Home</Link>
           </li>
