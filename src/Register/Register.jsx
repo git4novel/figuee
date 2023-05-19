@@ -19,6 +19,7 @@ const {currentUser, setCurrentUser, loading, setLoading } = useContext(AuthConte
     const email = form.email.value;
     const password = form.password.value;
     const photo = form.photo.value;
+    if(password)
     createUserWithEmailAndPassword(auth, email, password)
     .then(result=>{
         const user = result.user;
