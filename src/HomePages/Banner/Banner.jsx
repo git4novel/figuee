@@ -16,7 +16,7 @@ const Banner = () => {
     <div className="carousel   max-h-[700px]  w-full">
     {/* slide one */}
     <div id="slide1" className="carousel-item relative w-full">
-      <div className="text-white absolute text-start w-full lg:w-1/3 mx-10 lg:mx-28 top-3 lg:top-1/3">
+      <div className="text-white absolute text-start w-full lg:w-1/3 mx-10 lg:mx-28 top-5 lg:top-1/3">
         <h1
           style={{
             textShadow: "2px 2px 4px rgba(0, 0, 0, 1)",
@@ -35,8 +35,8 @@ const Banner = () => {
           </p>
         </Typist>
         <Typist  avgTypingDelay={200} cursor={{ show: false }}>
-        <p className="italic text-lg leading-relaxed">
-          <span className="font-bold">Figuee</span> is a Platform for finding Your toy for loved ones. Its a collection. You can have your collection as well. These are the Materials for connecting bond.
+        <p className="me-8 italic text-lg leading-relaxed">
+          <span className="font-bold">Figuee</span> is a Platform for finding Your toy for loved ones. Its a collection. You can have your collection as well. <span className="hidden lg:flex">These are the Materials for connecting bond.</span>
         </p>
         </Typist>
       </div>

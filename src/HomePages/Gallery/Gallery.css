@@ -1,0 +1,11 @@
+.gallery-item {
+    width: 300px; /* Adjust the width as desired */
+    height: 300px; /* Adjust the height as desired */
+    margin: 0 auto;
+    text-align: start;
+  }
+
+  .gallery{
+    margin: auto 20px;
+    justify-content: space-evenly;
+  }

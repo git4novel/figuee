@@ -14,12 +14,16 @@ export const AuthProvider = ({children}) => {
     const [currentUser, setCurrentUser] = useState(null);
     const [photo, setPhoto] = useState(null);
     const [name, setName] = useState(null);
+    const [email, setEmail] = useState(null)
     
 
     useEffect(()=>{
         const unsubscribe = auth.onAuthStateChanged((user) =>{
             setCurrentUser(user);
             setLoading(false);
+            setName(user?.displayName);
+            setEmail(user.email)
+            console.log(user, user.email, "user");
         })
         return () =>{
             unsubscribe();
@@ -29,7 +33,7 @@ export const AuthProvider = ({children}) => {
     return (
         <AuthContext.Provider value={{
             currentUser, setCurrentUser, setLoading,
-            loading, photo, setPhoto, name, setName
+            loading, photo, setPhoto, name, setName, email, setEmail
           }}>
             {children}
           </AuthContext.Provider>

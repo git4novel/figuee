@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext, auth } from "../providers/AuthProvider";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import Swal from "sweetalert2";
@@ -9,7 +9,12 @@ import 'sweetalert2/dist/sweetalert2.css';
 
 const Register = () => {
     
-const {currentUser, setCurrentUser, loading, setLoading } = useContext(AuthContext)
+const {currentUser, setCurrentUser, setName, setEmail, loading, setLoading } = useContext(AuthContext)
+
+const navigate = useNavigate();
+const location = useLocation();
+
+const from = location.state?.from?.pathname || "/";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +24,14 @@ const {currentUser, setCurrentUser, loading, setLoading } = useContext(AuthConte
     const email = form.email.value;
     const password = form.password.value;
     const photo = form.photo.value;
-    if(password)
+    if (!/.{6}/.test(password)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: "Password Needs to be at least 6 character !",
+      })
+      return;
+    }
     createUserWithEmailAndPassword(auth, email, password)
     .then(result=>{
         const user = result.user;
@@ -28,10 +40,10 @@ const {currentUser, setCurrentUser, loading, setLoading } = useContext(AuthConte
             title: 'Success',
             text: 'SignUp successful'
         })
-        
+        user.displayName = name;
+        setEmail(email)
         setCurrentUser(user);
-        console.log(user);
-        
+        navigate(from)
     })
     .catch((error)=>{
         console.log(error);
@@ -41,7 +53,6 @@ const {currentUser, setCurrentUser, loading, setLoading } = useContext(AuthConte
             text: `${error?.message}!`,
           })
     })
-    console.log(name,email, password, photo);
     // Reset the form
     form.reset()
   };

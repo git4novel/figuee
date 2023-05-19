@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import "./Login.css";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext, auth } from "../providers/AuthProvider";
 import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import Swal from "sweetalert2";
@@ -11,6 +11,10 @@ import 'sweetalert2/dist/sweetalert2.css';
 const Login = () => {
   const { setCurrentUser, loading, setLoading } = useContext(AuthContext);
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,6 +31,7 @@ const Login = () => {
             text: 'SignIn successful'
         })
         setCurrentUser(user);
+        navigate(from)
         console.log(user);
     })
     .catch(error=>{
@@ -52,6 +57,8 @@ const Login = () => {
             title: 'Success',
             text: 'SignIn successful'
         })
+        setCurrentUser(user);
+        navigate(from)
     })
     .catch(error=>{
         console.log(error?.message);

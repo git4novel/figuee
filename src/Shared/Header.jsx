@@ -71,48 +71,24 @@ const Header = () => {
             </svg>
           </label>
           <ul
-            style={{ fontFamily: 'Pacifico' }}
+            style={{ fontFamily: "Pacifico" }}
             tabIndex={0}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li className="font-semibold italic">
               <Link to={"/"}>Home</Link>
             </li>
-            {/* <li tabIndex={0}>
-              <a className="justify-between">
-                Parent
-                <svg
-                  className="fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                </svg>
-              </a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </li> */}
             <li className="font-semibold italic">
-              <Link>All Toys</Link>
+              <Link to={"/allToys"}>All Toys</Link>
             </li>
-            {currentUser && (
-            <div  className="">
+            <div className="">
               <li className="font-semibold italic">
-                <Link>My Toys</Link>
+                <Link to={"/myToys"}>My Toys</Link>
               </li>
               <li className="font-semibold italic">
-                <Link>Add a toy</Link>
+                <Link to={"/addAToy"}>Add a toy</Link>
               </li>
             </div>
-          )}
             <li className="font-semibold italic">
               <Link to={"/blog"}>Blog</Link>
             </li>
@@ -127,47 +103,26 @@ const Header = () => {
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul style={{ fontFamily: 'Pacifico' }} className="menu menu-horizontal px-1">
+        <ul
+          style={{ fontFamily: "Pacifico" }}
+          className="menu menu-horizontal px-1"
+        >
           <li className="font-semibold italic">
-            <Link>Home</Link>
+            <Link to={"/"}>Home</Link>
           </li>
-          {/* <li tabIndex={0}>
-            <a>
-              Parent
-              <svg
-                className="fill-current"
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-              >
-                <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-              </svg>
-            </a>
-            <ul className="p-2">
-              <li>
-                <Link>Home</Link>
-              </li>
-              <li>
-                <Link>All Toys</Link>
-              </li>
-            </ul>
-          </li> */}
           <li className="hover:bg-[#FBEDDC] font-semibold italic">
-            <Link>All Toys</Link>
+            <Link to={"/allToys"}>All Toys</Link>
           </li>
-          {currentUser && (
-            <div  className="flex">
-              <li className="font-semibold italic">
-                <Link>My Toys</Link>
-              </li>
-              <li className="font-semibold italic">
-                <Link>Add a toy</Link>
-              </li>
-            </div>
-          )}
+          <div className="flex">
+            <li className="font-semibold italic">
+              <Link to={"/myToy"}>My Toys</Link>
+            </li>
+            <li className="font-semibold italic">
+              <Link to={"/addAToy"}>Add a toy</Link>
+            </li>
+          </div>
           <li className="italic font-semibold">
-            <Link to={'/blog'}>Blog</Link>
+            <Link to={"/blog"}>Blog</Link>
           </li>
         </ul>
       </div>
@@ -197,12 +152,14 @@ const Header = () => {
         </div>
         <div>
           {currentUser ? (
-            <button
-              onClick={logOut}
-              className="bg-[#7E4C4F] hover:bg-[#F6AB4A] btn border"
-            >
-              Log Out
-            </button>
+            <Link to={'/'}>
+              <button
+                onClick={logOut}
+                className="bg-[#7E4C4F] hover:bg-[#F6AB4A] btn border"
+              >
+                Log Out
+              </button>
+            </Link>
           ) : (
             <Link
               to={"/login"}
