@@ -8,6 +8,7 @@ import Blog from "../Blog/Blog";
 import AddAToy from "../layouts/AddAToy";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPageLayout from "../layouts/ErrorPageLayout";
+import MyToy from "../MyToy/MyToy";
 
 
 export const router = createBrowserRouter([
@@ -30,6 +31,11 @@ export const router = createBrowserRouter([
         {
           path: '/blog',
           element: <Blog></Blog>
+        },
+        {
+          path: 'mytoy', 
+          element: <MyToy></MyToy>,
+          loader: () => fetch('http://localhost:5000/mytoy')
         },
         {
             path: '*',
