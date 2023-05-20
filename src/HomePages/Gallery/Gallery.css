@@ -1,8 +1,10 @@
 .gallery-item {
     width: 300px; /* Adjust the width as desired */
-    height: 300px; /* Adjust the height as desired */
-    margin: 0 auto;
-    text-align: start;
+    height: 250px; /* Adjust the height as desired */  
+  }
+.gallery-item img{
+    width: 300px; /* Adjust the width as desired */
+    height: 250px; /* Adjust the height as desired */
   }
 
   .gallery{
