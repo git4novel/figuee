@@ -1,5 +1,6 @@
 import { key } from "localforage";
 import React, { useState } from "react";
+import ReactModal from "react-modal";
 import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -38,6 +39,15 @@ const MyToy = () => {
       })
   }
 
+
+//   tried react modal didnt work out
+/*   const [isModalOpen, setModalOpen] = useState(false);
+  const handleModalOpen = () => {
+    setModalOpen(true);
+  };
+  const handleModalClose = () => {
+    setModalOpen(false);
+  }; */
   return (
     <div className="overflow-x-auto w-full">
       <table className="table w-full">
@@ -57,14 +67,13 @@ const MyToy = () => {
         </thead>
         <tbody>
           {toys.map((toy) => (
-            <tr key={toy.id}>
+            <tr key={toy._id}>
               <th>
-                <Link to={`/toys/${toy.id}`}>
-                    <button  htmlFor="my-modal-5" className="bg-[gold] px-3 py-2 rounded">
-                    Update
-                    </button>
+                <Link to={`/update/${toy._id}`}>
+                <button className="bg-[gold] px-3 py-2 rounded">
+                        Update
+                    </button> 
                 </Link>
-
               </th>
               <td>
                 <div className="flex items-center space-x-3">
@@ -88,9 +97,24 @@ const MyToy = () => {
         </tbody>
         {/* foot */}
       </table>
+    
     </div>
   );
 };
 
 export default MyToy;
 
+
+
+  {/* <ReactModal
+      isOpen={isModalOpen}
+      onRequestClose={handleModalClose}
+      contentLabel="Update Toy Modal"
+      ariaHideApp={false} // Disable the aria-hidden warning
+    >
+
+      <div className="relative bg-white">
+        <p onClick={handleModalClose} className="text-red-600 font-bold absolute top-0 right-0">X</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus fuga quae quia ea vitae, fugit perspiciatis voluptate reiciendis minus voluptas porro amet quas culpa iste eos blanditiis molestiae aspernatur eum qpsam sequi officiis, nisi dolore soluta tempora voluptatibus. Officia error suscipit eius. Dicta earum iste sit omnis totam, ipsa consequuntur, et culpa voluptatibus repellat error ipsmquam! Quaerat agni laboriosam fugit, officia temporibus hic, rem dignissimos, eveniet tenetur dolore! Quae repellat officiis id? Dolorem, iste.</p>
+      </div>
+    </ReactModal> */}

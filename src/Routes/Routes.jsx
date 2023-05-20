@@ -9,6 +9,7 @@ import AddAToy from "../layouts/AddAToy";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPageLayout from "../layouts/ErrorPageLayout";
 import MyToy from "../MyToy/MyToy";
+import UpdateAToy from "../MyToy/UpdateAToy";
 
 
 export const router = createBrowserRouter([
@@ -36,6 +37,11 @@ export const router = createBrowserRouter([
           path: 'mytoy', 
           element: <MyToy></MyToy>,
           loader: () => fetch('http://localhost:5000/mytoy')
+        },
+        {
+          path: 'update/:id',
+          element: <UpdateAToy></UpdateAToy>,
+          loader: ({params}) => fetch('')
         },
         {
             path: '*',
