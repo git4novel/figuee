@@ -4,47 +4,65 @@ import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
 
 const UpdateAToy = () => {
+  const { currentUser } = useContext(AuthContext);
 
+  const loadedToy = useLoaderData();
+  const {
+    photo,
+    toyname,
+    seller,
+    email,
+    category,
+    price,
+    rating,
+    quantity,
+    description,
+    _id,
+  } = loadedToy;
 
-    const  {currentUser} = useContext(AuthContext);
-    
-    const loadedToy = useLoaderData()
-    const { photo, toyname,seller, email, category, price, rating, quantity, description, _id} = loadedToy;
-    
-    const handleUpdateToy = (e) =>{
-        e.preventDefault();
-        const form = e.target;
-        const photo = form.photoUrl.value;
-        const toyname = form.toyname.value;
-        const seller = form.sellername.value;
-        const email = form.email.value;
-        const category = form.category.value;
-        const price = form.price.value;
-        const rating = form.rating.value;
-        const quantity = form.quantity.value;
-        const description = form.description.value;
-        const UpdatedToy = {photo, toyname,seller, email, category, price, rating, quantity, description}
+  const handleUpdateToy = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const photo = form.photoUrl.value;
+    const toyname = form.toyname.value;
+    const seller = form.sellername.value;
+    const email = form.email.value;
+    const category = form.category.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const quantity = form.quantity.value;
+    const description = form.description.value;
+    const UpdatedToy = {
+      photo,
+      toyname,
+      seller,
+      email,
+      category,
+      price,
+      rating,
+      quantity,
+      description,
+    };
 
-        fetch(`http://localhost:5000/update/${_id}`,{
-            method: 'PUT',
-            headers: {
-                'content-type' : 'application/json'
-            },
-            body: JSON.stringify(UpdatedToy)
-        })
-        .then(res=>res.json())
-        .then(data=>{
-            if(data.modifiedCount >0){
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Success',
-                    text: 'Toy is Updated SuccessFully'
-                })
-                form.reset()
-            }
-        })
-    }
- 
+    fetch(`https://action-fig-server.vercel.app/update/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(UpdatedToy),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Toy is Updated SuccessFully",
+          });
+          form.reset();
+        }
+      });
+  };
 
   return (
     <div className="">
@@ -52,7 +70,7 @@ const UpdateAToy = () => {
         style={{ fontFamily: "Pacifico" }}
         className="text-center text-lg lg:text-3xl mt-4 font-bold mb-4 text-[#7E4C4F]"
       >
-         Update <span className="text-[#F6AB4A]">Your Toy</span>
+        Update <span className="text-[#F6AB4A]">Your Toy</span>
       </p>
       {/* div for form */}
       <form

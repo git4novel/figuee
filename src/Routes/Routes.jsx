@@ -12,54 +12,61 @@ import MyToy from "../MyToy/MyToy";
 import UpdateAToy from "../MyToy/UpdateAToy";
 import AllToy from "../AllToy/AllToy";
 
-
 export const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Main></Main>,
-      children: [
-        {
-            path: '/',
-            element: <HomeOutlet></HomeOutlet>
-        },
-        {
-            path:'/login',
-            element: <Login></Login>
-        },
-        {
-            path: '/register',
-            element: <Register></Register>
-        },
-        {
-          path: '/blog',
-          element: <Blog></Blog>
-        },
-        {
-          path: 'mytoy', 
-          element: <PrivateRoute><MyToy></MyToy></PrivateRoute>,
-          loader: () => fetch('http://localhost:5000/mytoy')
-        },
-        {
-          path: 'update/:id',
-          element: <UpdateAToy></UpdateAToy>,
-          loader: ({params}) => fetch(`http://localhost:5000/toy/${params.id}`)
-        },
-        {
-          path: 'alltoys',
-          element: <AllToy></AllToy>
-        },
-        {
-            path: '*',
-            element: <Navigate to={'/error'}></Navigate>
-        }
-      ]
-    },
-    {
-      path: '/addAToy',
-      element: <PrivateRoute><AddAToy></AddAToy></PrivateRoute>
-    },
-    {
-      path: '/error',
-      element: <ErrorPageLayout></ErrorPageLayout>
-    }
-  ]);
+  {
+    path: "/",
+    element: <Main></Main>,
+    children: [
+      {
+        path: "/",
+        element: <HomeOutlet></HomeOutlet>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "mytoy",
+        element: (
+          <PrivateRoute>
+            <MyToy></MyToy>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "update/:id",
+        element: <UpdateAToy></UpdateAToy>,
+        loader: ({ params }) =>
+          fetch(`https://action-fig-server.vercel.app/toy/${params.id}`),
+      },
+      {
+        path: "alltoys",
+        element: <AllToy></AllToy>,
+      },
+      {
+        path: "*",
+        element: <Navigate to={"/error"}></Navigate>,
+      },
+    ],
+  },
+  {
+    path: "/addAToy",
+    element: (
+      <PrivateRoute>
+        <AddAToy></AddAToy>
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/error",
+    element: <ErrorPageLayout></ErrorPageLayout>,
+  },
+]);
