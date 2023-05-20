@@ -1,9 +1,8 @@
-import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "./ShopCategory.css";
 import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { AiTwotoneStar } from 'react-icons/ai';
 
 const ShopCategory = () => {
   const [toggleState, setToggleState] = useState(1);
@@ -62,10 +61,16 @@ const ShopCategory = () => {
                 />
               </figure>
               <div className="card-body">
-                <h2 className="card-title">!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <h2 className="card-title">Falcon!</h2>
+                <p className="text-xl italic">Price: 15$</p>
+                <div className="flex gap-1 text-xl text-[#7E4C4F]">
+                  <AiTwotoneStar className="" /> 
+                  <AiTwotoneStar className="" /> 
+                  <AiTwotoneStar className="" /> 
+                  <AiTwotoneStar className="" /> 
+                </div>
                 <div className="card-actions justify-end">
-                  <button onClick={notify} className="btn btn-primary">Buy Now</button>
+                  <button onClick={notify} className="bg-[#7E4C4F] hover:bg-[#9d6e71] btn btn-primary">Show Details</button>
                 </div>
               </div>
             </div>
@@ -78,10 +83,16 @@ const ShopCategory = () => {
                 />
               </figure>
               <div className="card-body">
-                <h2 className="card-title">Shoes!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <h2 className="card-title">Tony Stark!</h2>
+                <p className="text-xl italic">Price: 15$</p>
+                <div className="flex gap-1 text-xl text-[#7E4C4F]">
+                  <AiTwotoneStar className="" /> 
+                  <AiTwotoneStar className="" /> 
+                  <AiTwotoneStar className="" /> 
+                  <AiTwotoneStar className="" /> 
+                </div>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Buy Now</button>
+                  <button onClick={notify} className="bg-[#7E4C4F] hover:bg-[#9d6e71] btn btn-primary">Show Details</button>
                 </div>
               </div>
             </div>
@@ -101,10 +112,16 @@ const ShopCategory = () => {
                 />
               </figure>
               <div className="card-body">
-                <h2 className="card-title">Shoes!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <h2 className="card-title">Moon Knight!</h2>
+                <p className="text-xl italic">Price: 15$</p>
+                <div className="flex gap-1 text-xl text-[#7E4C4F]">
+                  <AiTwotoneStar className="" /> 
+                  <AiTwotoneStar className="" /> 
+                  <AiTwotoneStar className="" /> 
+                  <AiTwotoneStar className="" /> 
+                </div>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Buy Now</button>
+                  <button onClick={notify} className="bg-[#7E4C4F] hover:bg-[#9d6e71] btn btn-primary">Show Details</button>
                 </div>
               </div>
             </div>
@@ -117,10 +134,16 @@ const ShopCategory = () => {
                 />
               </figure>
               <div className="card-body">
-                <h2 className="card-title">Shoes!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <h2 className="card-title">Joker!</h2>
+                <p className="text-xl italic">Price: 15$</p>
+                <div className="flex gap-1 text-xl text-[#7E4C4F]">
+                  <AiTwotoneStar className="" /> 
+                  <AiTwotoneStar className="" /> 
+                  <AiTwotoneStar className="" /> 
+                  <AiTwotoneStar className="" /> 
+                </div>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Buy Now</button>
+                  <button onClick={notify} className="bg-[#7E4C4F] hover:bg-[#9d6e71] btn btn-primary">Show Details</button>
                 </div>
               </div>
             </div>
@@ -140,10 +163,16 @@ const ShopCategory = () => {
                 />
               </figure>
               <div className="card-body">
-                <h2 className="card-title">Shoes!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <h2 className="card-title">Shang Chi!</h2>
+                <p className="text-xl italic">Price: 15$</p>
+                <div className="flex gap-1 text-xl text-[#7E4C4F]">
+                  <AiTwotoneStar className="" /> 
+                  <AiTwotoneStar className="" /> 
+                  <AiTwotoneStar className="" /> 
+                  <AiTwotoneStar className="" /> 
+                </div>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Buy Now</button>
+                  <button onClick={notify} className="bg-[#7E4C4F] hover:bg-[#9d6e71] btn btn-primary">Show Details</button>
                 </div>
               </div>
             </div>
@@ -156,10 +185,16 @@ const ShopCategory = () => {
                 />
               </figure>
               <div className="card-body">
-                <h2 className="card-title">Shoes!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <h2 className="card-title">Captain America !</h2>
+                <p className="text-xl italic">Price: 15$</p>
+                <div className="flex gap-1 text-xl text-[#7E4C4F]">
+                  <AiTwotoneStar className="" /> 
+                  <AiTwotoneStar className="" /> 
+                  <AiTwotoneStar className="" /> 
+                  <AiTwotoneStar className="" /> 
+                </div>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Buy Now</button>
+                  <button onClick={notify} className="bg-[#7E4C4F] hover:bg-[#9d6e71] btn btn-primary">Show Details</button>
                 </div>
               </div>
             </div>
