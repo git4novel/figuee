@@ -6,11 +6,12 @@ import { AuthContext, auth } from "../providers/AuthProvider";
 import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import Swal from "sweetalert2";
 import 'sweetalert2/dist/sweetalert2.css';
+import useTitleHook from "../hooks/useTitleHook";
 
 
 const Login = () => {
   const { setCurrentUser, loading, setLoading } = useContext(AuthContext);
-
+  useTitleHook(Login)
   const navigate = useNavigate();
   const location = useLocation();
 

@@ -4,10 +4,13 @@ import ReactModal from "react-modal";
 import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../providers/AuthProvider";
+import useTitleHook from "../hooks/useTitleHook";
 
 const MyToy = () => {
   const { currentUser } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
+
+  useTitleHook(MyToy);
 
   const url = `https://action-fig-server.vercel.app/mytoy?email=${currentUser.email}`;
 

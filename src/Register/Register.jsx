@@ -4,13 +4,14 @@ import { AuthContext, auth } from "../providers/AuthProvider";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import Swal from "sweetalert2";
 import 'sweetalert2/dist/sweetalert2.css';
+import useTitleHook from "../hooks/useTitleHook";
 
 
 
 const Register = () => {
     
 const {currentUser, setCurrentUser, setName, setEmail, loading, setLoading } = useContext(AuthContext)
-
+useTitleHook(Register)
 const navigate = useNavigate();
 const location = useLocation();
 

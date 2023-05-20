@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { IoChevronDown, IoChevronUp } from "react-icons/io5";
+import useTitleHook from "../hooks/useTitleHook";
 
 const Blog = () => {
   const [openIndexes, setOpenIndexes] = useState([]);
-
+  useTitleHook(Blog)
   const questions = [
     {
       question:
