@@ -12,6 +12,7 @@ const HomeOutlet = () => {
     return (
         <>
             <Banner></Banner>
+            
             <Gallery></Gallery>
             <ShopCategory></ShopCategory>
 
