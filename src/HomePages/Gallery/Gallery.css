@@ -1,12 +1,12 @@
-.gallery-item {
-    width: 300px; /* Adjust the width as desired */
-    height: 250px; /* Adjust the height as desired */  
+/* .gallery-item {
+    width: 300px; 
+    height: 250px; 
   }
 .gallery-item img{
-    width: 300px; /* Adjust the width as desired */
-    height: 250px; /* Adjust the height as desired */
+    width: 300px; 
+    height: 250px; 
   }
-
+ */
   .gallery{
     margin: auto 20px;
     justify-content: space-evenly;

@@ -20,6 +20,7 @@
     "react-icons": "^4.8.0",
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.11.2",
+    "react-tabs": "^6.0.1",
     "react-transition-group": "^4.4.5",
     "react-typing-effect": "^2.0.5",
     "react-typist": "^2.0.5",

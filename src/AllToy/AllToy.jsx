@@ -1,5 +1,7 @@
+import useTitleHook from "../hooks/useTitleHook";
 
 const AllToy = () => {
+    useTitleHook('AllToy')
     return (
         <div>
             

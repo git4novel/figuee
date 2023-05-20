@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
+import useTitleHook from "../hooks/useTitleHook";
 
 const AddAToyPage = () => {
   const { currentUser } = useContext(AuthContext);
-
+  useTitleHook('AddAToy')
   const handleAddAToy = (e) => {
     e.preventDefault();
     const form = e.target;

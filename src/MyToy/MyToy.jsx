@@ -10,7 +10,7 @@ const MyToy = () => {
   const { currentUser } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
 
-  useTitleHook(MyToy);
+  useTitleHook('MyToy');
 
   const url = `https://action-fig-server.vercel.app/mytoy?email=${currentUser.email}`;
 

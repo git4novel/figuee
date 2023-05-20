@@ -4,7 +4,7 @@ import useTitleHook from "../hooks/useTitleHook";
 
 const Blog = () => {
   const [openIndexes, setOpenIndexes] = useState([]);
-  useTitleHook(Blog)
+  useTitleHook('Blog')
   const questions = [
     {
       question:

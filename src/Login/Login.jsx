@@ -11,7 +11,7 @@ import useTitleHook from "../hooks/useTitleHook";
 
 const Login = () => {
   const { setCurrentUser, loading, setLoading } = useContext(AuthContext);
-  useTitleHook(Login)
+  useTitleHook('Login');
   const navigate = useNavigate();
   const location = useLocation();
 

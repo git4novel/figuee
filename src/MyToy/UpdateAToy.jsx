@@ -2,10 +2,11 @@ import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
+import useTitleHook from "../hooks/useTitleHook";
 
 const UpdateAToy = () => {
   const { currentUser } = useContext(AuthContext);
-
+  useTitleHook('MyToyUpdate')
   const loadedToy = useLoaderData();
   const {
     photo,
