@@ -11,6 +11,7 @@ import ErrorPageLayout from "../layouts/ErrorPageLayout";
 import MyToy from "../MyToy/MyToy";
 import UpdateAToy from "../MyToy/UpdateAToy";
 import AllToy from "../AllToy/AllToy";
+import SingleDetail from "../AllToy/SingleDetail";
 
 export const router = createBrowserRouter([
   {
@@ -50,6 +51,11 @@ export const router = createBrowserRouter([
       {
         path: "alltoys",
         element: <AllToy></AllToy>,
+      },
+      {
+        path: '/singleDetail/:id',
+        element: <PrivateRoute><SingleDetail></SingleDetail></PrivateRoute>,
+        loader: ({params}) => fetch(`https://action-fig-server.vercel.app/toy/${params.id}`)
       },
       {
         path: "*",
