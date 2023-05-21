@@ -1,4 +1,3 @@
-
 import React, { useContext, useEffect, useState } from "react";
 import ReactModal from "react-modal";
 import { Link, useLoaderData } from "react-router-dom";
@@ -9,40 +8,35 @@ import useTitleHook from "../hooks/useTitleHook";
 const MyToy = () => {
   const { currentUser } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
-  useTitleHook('MyToy');
-
+  useTitleHook("MyToy");
 
   const [sortOrder, setSortOrder] = useState("asc");
   const url = `https://action-fig-server.vercel.app/mytoy?email=${currentUser.email}&sort=${sortOrder}`;
 
   useEffect(() => {
-    const sortToys = () => {
-      const sortedToys = [...toys].sort((a, b) => {
-        if (sortOrder === "asc") {
-          return a.price - b.price;
-        } else {
-          return b.price - a.price;
-        }
-      });
-      setToys(sortedToys);
-    };
-
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        setToys(data);
-        sortToys();
+        // Sort the data based on sortOrder
+        const sortedToys = data.sort((a, b) => {
+          if (sortOrder === "asc") {
+            return a.price - b.price;
+          } else {
+            return b.price - a.price;
+          }
+        });
+        setToys(sortedToys);
       });
   }, [sortOrder]);
 
   const handleSortAscending = () => {
     setSortOrder("asc");
   };
-  
+
   const handleSortDescending = () => {
     setSortOrder("desc");
   };
-  
+
   // delete functionality
   const handleDelete = (id) => {
     Swal.fire({
@@ -73,19 +67,19 @@ const MyToy = () => {
   return (
     <div className="overflow-x-auto w-full">
       <div className="flex justify-end mb-2">
-      <button
-        onClick={handleSortAscending}
-        className="px-3 py-2 mr-2 bg-[#7E4C4F] hover:bg-[#5a3a3c] text-white rounded"
-      >
-        Sort Ascending
-      </button>
-      <button
-        onClick={handleSortDescending}
-        className="px-3 py-2 bg-[#7E4C4F] hover:bg-[#5a3a3c] text-white rounded"
-      >
-        Sort Descending
-      </button>
-    </div>
+        <button
+          onClick={handleSortAscending}
+          className="px-3 py-2 mr-2 bg-[#7E4C4F] hover:bg-[#5a3a3c] text-white rounded"
+        >
+          Sort Ascending
+        </button>
+        <button
+          onClick={handleSortDescending}
+          className="px-3 py-2 bg-[#7E4C4F] hover:bg-[#5a3a3c] text-white rounded"
+        >
+          Sort Descending
+        </button>
+      </div>
       <table className="table w-full">
         {/* head */}
         <thead>
@@ -147,4 +141,3 @@ const MyToy = () => {
 };
 
 export default MyToy;
-
