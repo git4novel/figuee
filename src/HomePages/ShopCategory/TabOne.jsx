@@ -35,7 +35,7 @@ const TabOne = ({notify}) => {
                    <Rating style={{ maxWidth: 100 }} readOnly value={d.rating}></Rating>
                 </div>
                 <div className="card-actions justify-end">
-                  <Link><button onClick={notify} className="bg-[#7E4C4F] hover:bg-[#9d6e71] btn btn-primary">Show Details</button></Link>
+                  <Link to={`/categoryToy/${d._id}`}><button onClick={notify} className="bg-[#7E4C4F] hover:bg-[#9d6e71] btn btn-primary">Show Details</button></Link>
                 </div>
               </div>
             </div>
