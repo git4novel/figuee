@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
 import useTitleHook from "../hooks/useTitleHook";
+import './AddAToy.css'
+
 
 const AddAToyPage = () => {
   const { currentUser } = useContext(AuthContext);
@@ -9,7 +11,6 @@ const AddAToyPage = () => {
   const handleAddAToy = (e) => {
     e.preventDefault();
     const form = e.target;
-    console.log(form);
     const photo = form.photoUrl.value;
     const toyname = form.toyname.value;
     const seller = form.sellername.value;
@@ -19,17 +20,6 @@ const AddAToyPage = () => {
     const rating = form.rating.value;
     const quantity = form.quantity.value;
     const description = form.description.value;
-    console.log(
-      photo,
-      toyname,
-      seller,
-      email,
-      category,
-      price,
-      rating,
-      quantity,
-      description
-    );
     const toy = {
       photo,
       toyname,
