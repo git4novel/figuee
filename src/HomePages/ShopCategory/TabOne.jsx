@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const TabOne = ({notify}) => {
 
   const [data, setData] = useState([])
-    const url = `http://localhost:5000/categoryToy?category=${`Avenger Toys`}`;
+    const url = `https://action-fig-server.vercel.app/categoryToy?category=${`Avenger Toys`}`;
     useEffect(()=>{
       fetch(url)
       .then(res=>res.json())
