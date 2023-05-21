@@ -1,11 +1,6 @@
 
-/*   .gallery{
-    margin: auto 20px;
-    justify-content: space-evenly;
-  } */
-  @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-
-  .gallery-item {
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+.gallery-item {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,8 +8,8 @@
     border: 1px solid #ccc;
     border-radius: 10px;
     font-family: 'Pacifico', cursive;
-  }
-  .gallery {
+}
+.gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 1rem;

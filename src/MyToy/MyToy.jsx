@@ -11,7 +11,7 @@ const MyToy = () => {
   useTitleHook("MyToy");
 
   const [sortOrder, setSortOrder] = useState("asc");
-  const url = `https://action-fig-server.vercel.app/mytoy?email=${currentUser.email}&sort=${sortOrder}`;
+  const url = `?email=${currentUser.email}&sort=${sortOrder}`;
 
   useEffect(() => {
     fetch(url)
@@ -29,12 +29,8 @@ const MyToy = () => {
       });
   }, [sortOrder]);
 
-  const handleSortAscending = () => {
-    setSortOrder("asc");
-  };
-
-  const handleSortDescending = () => {
-    setSortOrder("desc");
+  const handleSortChange = (event) => {
+    setSortOrder(event.target.value);
   };
 
   // delete functionality
@@ -67,18 +63,14 @@ const MyToy = () => {
   return (
     <div className="overflow-x-auto w-full">
       <div className="flex justify-end mb-2">
-        <button
-          onClick={handleSortAscending}
-          className="px-3 py-2 mr-2 bg-[#7E4C4F] hover:bg-[#5a3a3c] text-white rounded"
-        >
-          Sort Ascending
-        </button>
-        <button
-          onClick={handleSortDescending}
+      <select
+          value={sortOrder}
+          onChange={handleSortChange}
           className="px-3 py-2 bg-[#7E4C4F] hover:bg-[#5a3a3c] text-white rounded"
         >
-          Sort Descending
-        </button>
+          <option value="asc">Sort Ascending</option>
+          <option value="desc">Sort Descending</option>
+        </select>
       </div>
       <table className="table w-full">
         {/* head */}
