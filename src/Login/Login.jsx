@@ -68,7 +68,11 @@ const Login = () => {
 
   return (
     <div className="mt-4 bg-[#E5E7EB] flex flex-col lg:flex-row min-h-screen">
-      <div className="lg:w-1/2 bg-gray-200 flex items-center justify-center">
+      <div 
+      data-aos="flip-right"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000"
+      className="lg:w-1/2 bg-gray-200 flex items-center justify-center">
         <div className="max-w-md w-full mx-auto p-6 bg-white border border-gray-300 shadow-md rounded-lg">
           <h2 className="text-3xl font-bold text-start mb-6">
             Please Login Here!
@@ -128,7 +132,6 @@ const Login = () => {
               className="bg-[#7E4C4F] text-white px-4 py-2 rounded-lg hover:bg-[#F6AB4A]"
             >
               <span className="inline-flex justify-center align-middle my-auto">
-                {" "}
                 Google <FcGoogle className="ml-3 my-auto" />
               </span>
             </button>
@@ -137,6 +140,9 @@ const Login = () => {
       </div>
 
       <div
+      data-aos="flip-left"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000"
         style={{ textShadow: "3px 3px 3px rgba(1, 1, 0.5, 1)" }}
         className="mt-2 shadow-2xl rounded-xl relative lg:w-1/2  text-white my-3 mx-3 flex items-center justify-center"
       >
