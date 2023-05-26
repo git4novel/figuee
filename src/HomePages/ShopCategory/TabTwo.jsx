@@ -16,10 +16,10 @@ const TabTwo = ({notify}) => {
     },[])
 
     return (
-        <div className="flex gap-4 mt-6">
+        <div className="flex flex-col md:flex-row lg:flex-row-reverse gap-2 md:gap-4 mx-auto  mt-6">
            {
             data.map(d => (
-              <div className="card card-compact w-96 bg-base-100 shadow-2xl">
+              <div className="card card-compact mx-auto  w-72 md:w-96 bg-base-100 shadow-2xl">
               <figure>
                 <img
                 className="h-32 lg:h-64"
@@ -31,7 +31,7 @@ const TabTwo = ({notify}) => {
                 <h2 className="card-title">{d.toyname}!</h2>
                 <p className="text-xl italic">Price: {d.price}$</p>
                 <div className="flex gap-1 text-xl text-[#7E4C4F]">
-                   <Rating style={{ maxWidth: 100 }} readOnly value={d.rating}></Rating>
+                   <Rating readOnly style={{ maxWidth: 100 }}  value={d.rating}></Rating>
                 </div>
                 <div className="card-actions justify-end">
                   <Link to={`/categoryToy/${d._id}`}><button onClick={notify} className="bg-[#7E4C4F] hover:bg-[#9d6e71] btn btn-primary">Show Details</button></Link>

@@ -14,10 +14,10 @@ const TabThree = ({notify}) => {
       })
     },[])
     return (
-        <div className="flex gap-4 mt-6">
+        <div className="flex flex-col md:flex-row lg:flex-row-reverse gap-2 md:gap-4  mt-6">
            {
             data.map(d => (
-              <div className="card card-compact w-96 bg-base-100 shadow-2xl">
+              <div className="card card-compact mx-auto w-72 md:w-96 bg-base-100 shadow-2xl">
               <figure>
                 <img
                 className="h-32 lg:h-64"

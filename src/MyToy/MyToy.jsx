@@ -11,7 +11,7 @@ const MyToy = () => {
   useTitleHook("MyToy");
 
   const [sortOrder, setSortOrder] = useState("asc");
-  const url = `?email=${currentUser.email}&sort=${sortOrder}`;
+  const url = `https://action-fig-server.vercel.app/mytoy?email=${currentUser.email}&sort=${sortOrder}`;
 
   useEffect(() => {
     fetch(url)
@@ -63,7 +63,7 @@ const MyToy = () => {
   return (
     <div className="overflow-x-auto w-full">
       <div className="flex justify-end mb-2">
-      <select
+        <select
           value={sortOrder}
           onChange={handleSortChange}
           className="px-3 py-2 bg-[#7E4C4F] hover:bg-[#5a3a3c] text-white rounded"
